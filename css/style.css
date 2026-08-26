@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Public+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #f6f3ee;
+  --ink: #211f1c;
+  --ink-soft: #4a463f;
+  --ink-faint: #7a766c;
+  --accent: #9a4a34;
+  --accent-hover: #7a3a29;
+  --rule: rgba(42, 39, 35, 0.1);
+  --max: 1040px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+html, body { overflow-x: hidden; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154, 74, 52, 0.35);
+}
+a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: rgba(122, 58, 41, 0.6);
+}
+
+h1, h2, h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(246, 243, 238, 0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-row {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+.wordmark img { height: 38px; width: auto; display: block; }
+.site-nav { display: flex; gap: 28px; font-size: 0.92rem; }
+.site-nav a { border-bottom: none; }
+.site-nav a:hover { color: var(--accent-hover); }
+.site-nav a.current { color: var(--ink); font-weight: 600; }
+
+/* Sections */
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 72px 32px;
+}
+.section.ruled { border-top: 1px solid var(--rule); }
+.section.hero { padding: 120px 32px 96px; position: relative; overflow: hidden; }
+
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.lede {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.hero-watermark {
+  position: absolute;
+  right: -40px;
+  top: 0;
+  width: 560px;
+  max-width: 75%;
+  height: auto;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 640px; }
+.hero-inner h1 { font-size: 2.9rem; line-height: 1.18; margin: 18px 0 22px; color: #211f1c; }
+.hero-inner p { font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); max-width: 34ch; margin: 0; }
+
+/* Capabilities grid */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+}
+.cap-grid h3 { font-size: 1.2rem; margin: 0 0 12px; }
+.cap-grid p { font-size: 0.96rem; line-height: 1.65; color: #5a564d; margin: 0; }
+
+/* Filmstrip */
+.filmstrip-caption {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin: 0 0 16px;
+  max-width: 60ch;
+}
+.filmstrip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+.filmstrip img {
+  height: 300px;
+  width: auto;
+  flex: 0 0 auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contact */
+.contact-block { font-size: 0.98rem; line-height: 1.8; color: var(--ink); }
+.contact-block .addr { margin-top: 0; }
+
+/* Footer */
+.site-footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 32px;
+  border-top: 1px solid rgba(42, 39, 35, 0.12);
+}
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-row .tag { letter-spacing: 0.06em; }
+
+@media (max-width: 640px) {
+  .site-nav { gap: 16px; }
+  .hero-inner h1 { font-size: 2.1rem !important; }
+  .hero-inner p { font-size: 1rem !important; }
+  .cap-grid { grid-template-columns: 1fr !important; }
+  .section { padding: 56px 24px !important; }
+  .section.hero { padding: 96px 24px 64px !important; }
+  .filmstrip img { height: 170px !important; }
+  .footer-row { flex-direction: column; align-items: flex-start !important; }
+}
