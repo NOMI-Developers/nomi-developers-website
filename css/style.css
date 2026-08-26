@@ -125,18 +125,20 @@ h1, h2, h3 {
 }
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, 112px);
+  justify-content: start;
+  gap: 8px;
 }
 .photo-grid button {
   display: block;
+  width: 112px;
+  height: 112px;
   padding: 0;
   border: 0;
   background: none;
   cursor: pointer;
   border-radius: 2px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
 }
 .photo-grid img {
   width: 100%;
@@ -275,7 +277,8 @@ h1, h2, h3 {
   .cap-grid { grid-template-columns: 1fr !important; }
   .section { padding: 56px 24px !important; }
   .section.hero { padding: 96px 24px 64px !important; }
-  .photo-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important; }
+  .photo-grid { grid-template-columns: repeat(auto-fill, 92px) !important; }
+  .photo-grid button { width: 92px !important; height: 92px !important; }
   .footer-row { flex-direction: column; align-items: flex-start !important; }
   .lightbox { padding: 16px !important; }
   .lightbox-prev, .lightbox-next { width: 38px !important; height: 38px !important; font-size: 1.15rem !important; }
